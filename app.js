@@ -132,18 +132,22 @@ function removeTaskFromLocalStorage(taskItem){
 
 // Clear Tasks
 function clearTasks() {
-  // taskList.innerHTML = '';
 
-  // Faster
-  while(taskList.firstChild) {
-    taskList.removeChild(taskList.firstChild);
+  if(confirm('Are You Sure?')){
+    // taskList.innerHTML = '';
+
+    // Faster
+    while(taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild);
+    }
+
+    // https://jsperf.com/innerhtml-vs-removechild
+
+    // Clear from LS
+
+    clearTasksFromLocalStorages();
   }
 
-  // https://jsperf.com/innerhtml-vs-removechild
-
-  // Clear from LS
-
-  clearTasksFromLocalStorages();
 }
 
 function clearTasksFromLocalStorages(){
